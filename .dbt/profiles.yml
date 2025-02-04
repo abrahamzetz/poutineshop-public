@@ -1,0 +1,13 @@
+poutine_shop:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: pd05831.us-east4.gcp
+      user: COALESCE_USER
+      password: CoalesceWorkshop-2022
+      database: POUTINESHOP_DEV_DB
+      warehouse: ELT_XS_WH
+      schema: dbt_abraham
+      threads: 8
+      client_session_keep_alive: False
