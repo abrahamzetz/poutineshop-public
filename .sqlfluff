@@ -1,13 +1,14 @@
 [sqlfluff]
+#dialect = teradata
 dialect = snowflake
 templater = dbt
+max_line_length = 120
 
-[sqlfluff:indentation]
-# See https://docs.sqlfluff.com/en/stable/indentation.html
-indented_joins = False
-indented_ctes = False
-indented_using_on = True
-template_blocks_indent = True
+; [sqlfluff:templater:dbt]
+; project_dir = dags/tdata/dbt
+; profiles_dir = dags/tdata/dbt
+; profile = axedw
+; target = dev2
 
 [sqlfluff:templater]
 unwrap_wrapped_queries = True
@@ -15,12 +16,20 @@ unwrap_wrapped_queries = True
 [sqlfluff:templater:jinja]
 apply_dbt_builtins = True
 
+[sqlfluff:indentation]
+# See https://docs.sqlfluff.com/en/stable/indentation.html
+indented_joins = False
+indented_ctes = False
+indented_using_on = True
+template_blocks_indent = True
+tab_space_size = 4
+indent_unit = space
+
+[sqlfluff:layout:type:comma]
+line_position=trailing
+
 # Some rules can be configured directly from the config common to other rules
 [sqlfluff:rules]
-tab_space_size = 4
-max_line_length = 120
-indent_unit = space
-comma_style = trailing
 allow_scalar = True
 single_table_references = consistent
 unquoted_identifiers_policy = all
