@@ -36,5 +36,6 @@ repos:
       # - id: check-source-table-has-description
       # - id: check-model-columns-have-desc
       # - id: check-model-has-all-columns
+      #   args: ["--manifest", "path/to/manifest.json", "--"]
       - id: check-model-has-tests
         args: ["--test-cnt", "2", "--"]
